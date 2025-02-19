@@ -1,6 +1,6 @@
 # Simple zod
 
-A simple implement for [zod](https://github.com/colinhacks/zod) library
+A simple implementation for [zod](https://github.com/colinhacks/zod) library
 
 ## Usage
 
