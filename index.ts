@@ -1,4 +1,4 @@
-// 定义 Schema 基类
+// basic schema class
 class Schema<T> {
     constructor(public typeName: string, private validateFn: (data: unknown) => T) { }
 
