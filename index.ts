@@ -2,13 +2,12 @@
 class Schema<T> {
     constructor(public typeName: string, private validateFn: (data: unknown) => T) { }
 
-    // 验证数据
+    // validate data
     parse(data: unknown): T {
         return this.validateFn(data);
     }
 }
 
-// 定义 string 模式
 class StringSchema extends Schema<string> {
     constructor() {
         super(
@@ -22,7 +21,6 @@ class StringSchema extends Schema<string> {
     }
 }
 
-// 定义 number 模式
 class NumberSchema extends Schema<number> {
     constructor() {
         super(
@@ -36,7 +34,6 @@ class NumberSchema extends Schema<number> {
     }
 }
 
-// 定义 boolean 模式
 class BooleanSchema extends Schema<boolean> {
     constructor() {
         super(
@@ -63,7 +60,6 @@ class NullSchema extends Schema<null> {
     }
 }
 
-// 定义 object 模式
 class ObjectSchema<T extends Record<string, Schema<unknown>>> extends Schema<{
     [K in keyof T]: T[K] extends Schema<infer U> ? U : never;
 }> {
@@ -132,6 +128,7 @@ class EnumSchema<U extends string | number, T extends [U, ...U[]]> extends Schem
     }
 }
 
+// tool type for infer type of schema
 export type TypeOf<T> = T extends Schema<infer U> ? U : never;
 export type { TypeOf as infer };
 
