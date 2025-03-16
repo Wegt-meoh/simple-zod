@@ -5,13 +5,18 @@ A simple implementation for [zod](https://github.com/colinhacks/zod) library
 ## Usage
 
 ```js
-const { z } = require("./lib")
-let stringArraySchema = z.array(z.string())
-let testCase = ["hello", "world"]
-let result = stringArraySchema.parse(testCase)
-console.log(result) // ["hello", "world"]
-let wrongTestCase = ["hello", 1]
-let wrongResult = stringArraySchema.parse(wrongTestCase) // throws an error
+import { z } from "./dist/index.js"
+
+// test string schema
+let stringSchema = z.string()
+console.log(stringSchema.parse("sdfsdf"))
+try {
+    stringSchema.parse(11) // expect throws an error
+} catch (error) {
+    console.error("carch error:", error.message)
+}
+
+// more detail see index.test.js
 ```
 
 ## Feature
@@ -27,3 +32,11 @@ z.union()
 z.enum()
 z.infer<typeof z.number()>
 ```
+
+## build
+
+`pnpm build`
+
+## test
+
+`pnpm test`
