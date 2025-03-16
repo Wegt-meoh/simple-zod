@@ -5,7 +5,7 @@ A simple implementation for [zod](https://github.com/colinhacks/zod) library
 ## Usage
 
 ```js
-const z = require("./index.js")
+const { z } = require("./lib")
 let stringArraySchema = z.array(z.string())
 let testCase = ["hello", "world"]
 let result = stringArraySchema.parse(testCase)
@@ -20,10 +20,10 @@ let wrongResult = stringArraySchema.parse(wrongTestCase) // throws an error
 z.number()
 z.string()
 z.boolean()
-z.nullObj()
+z.null()
 z.array()
 z.object()
 z.union()
-z.enumSchema()
+z.enum()
 z.infer<typeof z.number()>
 ```
