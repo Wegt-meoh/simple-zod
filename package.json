@@ -3,7 +3,9 @@
     "version": "1.0.0",
     "description": "",
     "main": "index.js",
+    "type": "module",
     "scripts": {
+        "test": "pnpm build && node index.test.js",
         "build": "tsc"
     },
     "keywords": [
